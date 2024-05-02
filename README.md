@@ -1,32 +1,44 @@
-# _Sample project_
+# ESP32 Wrover E HDC2080 Temperature Sensor Library
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+This project involves building a library for the HDC2080 temperature sensor and uploading real-time sensor data to an AWS server using the ESP32 Wrover-E microcontroller.
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+## Specifications
 
+- **Micro-controller**: ESP32 Wrover-E
+- **Espressif IDF Version**: 4.4
+- **Datasheet**: [ESP32 Wrover-E Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-wrover-e_esp32-wrover-ie_datasheet_en.pdf)
+- **Environment**: Espressif’s Development Framework ([ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html))
 
+## Key Points to Look Out For
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+1. Library building based on sensor datasheet.
+2. Comprehensive handling of WiFi and AWS fail cases.
+3. Maintenance of WiFi SSID and Password and last temperature data in FAT file system.
+4. Creation of different components for AWS, WiFi, Sensor, and Storage implementations.
+5. RTOS implementation for all components and global variable sharing.
 
-## Example folder contents
+## Usage
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+- Replace dummy endpoint URL and certificate IDs with actual AWS MQTT Broker details before deployment.
+- Configure WiFi SSID and Password in the FAT file system.
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+## Components
 
-Below is short explanation of remaining files in the project folder.
+- **AWS Component**: Responsible for handling communication with AWS services.
+- **WiFi Component**: Manages WiFi connectivity and credentials.
+- **Sensor Component**: Implements functionality related to the HDC2080 temperature sensor.
+- **Storage Component**: Handles storage of WiFi credentials and last temperature data.
 
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+## Build Instructions
+
+1. Clone this repository.
+2. Set up ESP-IDF environment.
+3. Configure WiFi SSID and Password in `wifi_component`.
+4. Replace dummy AWS endpoint URL and certificate IDs in `aws_component`.
+5. Build and flash the project to ESP32 Wrover-E.
+
+## Contributors
+
+- Vikas Sonwane (vikas.sonwane83@gmail.com)
+
+Feel free to contribute by opening issues, providing feedback, or submitting pull requests. Happy coding!
