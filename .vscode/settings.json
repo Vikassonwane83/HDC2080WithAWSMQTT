@@ -1,0 +1,11 @@
+{
+    "idf.adapterTargetName": "esp32",
+    "files.associations": {
+        "awsmqtt.h": "c",
+        "stdbool.h": "c",
+        "tempsensor.h": "c",
+        "cstddef": "c",
+        "wificonfig.h": "c",
+        "filesystem.h": "c"
+    }
+}
